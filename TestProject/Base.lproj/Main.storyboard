@@ -1,24 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="25408" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="25407"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R8S-4l-grV">
+                                <rect key="frame" x="10" y="69" width="373" height="739"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9bP-o0-hUF">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="jHE-sw-qlk"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="uEq-9I-Xih"/>
+                                        </connections>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JnF-sK-QBv">
+                                        <rect key="frame" x="0.0" y="60" width="373" height="679"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="stS-1k-abc">
+                                <rect key="frame" x="32" y="390" width="329" height="90"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="spN-2r-def">
+                                        <rect key="frame" x="146" y="0.0" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading products..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msG-3l-ghi">
+                                        <rect key="frame" x="0.0" y="49" width="329" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtY-4b-jkl">
+                                        <rect key="frame" x="124.66666666666666" y="81.333333333333314" width="80" height="34"/>
+                                        <state key="normal" title="Try Again"/>
+                                        <connections>
+                                            <action selector="retryTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="rtY-ac-001"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R8S-4l-grV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="cYt-VW-RSN"/>
+                            <constraint firstItem="stS-1k-abc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cXs-st-001"/>
+                            <constraint firstItem="stS-1k-abc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cYs-st-002"/>
+                            <constraint firstItem="stS-1k-abc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="ldS-st-003"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R8S-4l-grV" secondAttribute="bottom" constant="10" id="lAH-7Z-HfN"/>
+                            <constraint firstItem="msG-3l-ghi" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" constant="-64" id="wdL-lb-005"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="stS-1k-abc" secondAttribute="trailing" constant="32" id="trS-st-004"/>
+                            <constraint firstItem="R8S-4l-grV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="vGb-jZ-p6f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R8S-4l-grV" secondAttribute="trailing" constant="10" id="x5o-4R-dLE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="msG-3l-ghi" id="out-msg-001"/>
+                        <outlet property="retryButton" destination="rtY-4b-jkl" id="out-rty-001"/>
+                        <outlet property="search" destination="9bP-o0-hUF" id="kXF-hJ-qea"/>
+                        <outlet property="spinner" destination="spN-2r-def" id="out-spn-001"/>
+                        <outlet property="statusStack" destination="stS-1k-abc" id="out-stk-001"/>
+                        <outlet property="tableView" destination="JnF-sK-QBv" id="9pP-iW-1Sa"/>
+                        <segue destination="DTL-vc-001" kind="show" identifier="showDetail" id="seg-show-001"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-263" y="123"/>
+        </scene>
+        <!--Product Detail View Controller-->
+        <scene sceneID="dtl-scene-01">
+            <objects>
+                <viewController storyboardIdentifier="ProductDetailViewController" title="Details" id="DTL-vc-001" customClass="ProductDetailViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DTL-vw-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-sc-001">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-sk-001">
+                                        <rect key="frame" x="16" y="16" width="361" height="560"/>
+                                        <subviews>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-bx-001">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="260"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-im-001">
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="260"/>
+                                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                        <color key="tintColor" systemColor="tertiaryLabelColor"/>
+                                                    </imageView>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-ai-001">
+                                                        <rect key="frame" x="170.66666666666666" y="120" width="20" height="20"/>
+                                                    </activityIndicatorView>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-hb-001">
+                                                        <rect key="frame" x="317" y="8" width="36" height="36"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.9" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="DTL-hh-001"/>
+                                                            <constraint firstAttribute="width" constant="36" id="DTL-hw-001"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                        <state key="normal" image="heart" catalog="system"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <real key="value" value="18"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="favoriteTapped" destination="DTL-vc-001" eventType="touchUpInside" id="DTL-ha-001"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="260" id="DTL-ih-001"/>
+                                                    <constraint firstItem="DTL-im-001" firstAttribute="leading" secondItem="DTL-bx-001" secondAttribute="leading" id="DTL-il-001"/>
+                                                    <constraint firstItem="DTL-im-001" firstAttribute="top" secondItem="DTL-bx-001" secondAttribute="top" id="DTL-it-001"/>
+                                                    <constraint firstItem="DTL-bx-001" firstAttribute="trailing" secondItem="DTL-im-001" secondAttribute="trailing" id="DTL-ir-001"/>
+                                                    <constraint firstItem="DTL-bx-001" firstAttribute="bottom" secondItem="DTL-im-001" secondAttribute="bottom" id="DTL-ib-001"/>
+                                                    <constraint firstItem="DTL-ai-001" firstAttribute="centerX" secondItem="DTL-bx-001" secondAttribute="centerX" id="DTL-cx-001"/>
+                                                    <constraint firstItem="DTL-ai-001" firstAttribute="centerY" secondItem="DTL-bx-001" secondAttribute="centerY" id="DTL-cy-001"/>
+                                                    <constraint firstItem="DTL-bx-001" firstAttribute="trailing" secondItem="DTL-hb-001" secondAttribute="trailing" constant="8" id="DTL-hr-001"/>
+                                                    <constraint firstItem="DTL-hb-001" firstAttribute="top" secondItem="DTL-bx-001" secondAttribute="top" constant="8" id="DTL-ht-001"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-tl-001">
+                                                <rect key="frame" x="0.0" y="272" width="361" height="26.333333333333314"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-pl-001">
+                                                <rect key="frame" x="0.0" y="310.33333333333331" width="361" height="22"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-dh-001">
+                                                <rect key="frame" x="0.0" y="456.66666666666663" width="361" height="21.666666666666686"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-dl-001">
+                                                <rect key="frame" x="0.0" y="490.33333333333331" width="361" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DTL-sk-001" firstAttribute="leading" secondItem="DTL-cg-001" secondAttribute="leading" constant="16" id="DTL-sl-001"/>
+                                    <constraint firstItem="DTL-sk-001" firstAttribute="top" secondItem="DTL-cg-001" secondAttribute="top" constant="16" id="DTL-st-001"/>
+                                    <constraint firstItem="DTL-sk-001" firstAttribute="width" secondItem="DTL-fg-001" secondAttribute="width" constant="-32" id="DTL-sw-001"/>
+                                    <constraint firstItem="DTL-cg-001" firstAttribute="trailing" secondItem="DTL-sk-001" secondAttribute="trailing" constant="16" id="DTL-sr-001"/>
+                                    <constraint firstItem="DTL-cg-001" firstAttribute="bottom" secondItem="DTL-sk-001" secondAttribute="bottom" constant="24" id="DTL-sb-001"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="DTL-cg-001"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="DTL-fg-001"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DTL-sa-001"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DTL-sc-001" firstAttribute="leading" secondItem="DTL-vw-001" secondAttribute="leading" id="DTL-vl-001"/>
+                            <constraint firstItem="DTL-sc-001" firstAttribute="top" secondItem="DTL-sa-001" secondAttribute="top" id="DTL-vt-001"/>
+                            <constraint firstItem="DTL-sa-001" firstAttribute="trailing" secondItem="DTL-sc-001" secondAttribute="trailing" id="DTL-vr-001"/>
+                            <constraint firstItem="DTL-sa-001" firstAttribute="bottom" secondItem="DTL-sc-001" secondAttribute="bottom" id="DTL-vb-001"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" largeTitleDisplayMode="never" id="DTL-ni-001"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="DTL-dl-001" id="DTL-od-001"/>
+                        <outlet property="favoriteButton" destination="DTL-hb-001" id="DTL-of-001"/>
+                        <outlet property="imageSpinner" destination="DTL-ai-001" id="DTL-oi-001"/>
+                        <outlet property="imageView" destination="DTL-im-001" id="DTL-om-001"/>
+                        <outlet property="priceLabel" destination="DTL-pl-001" id="DTL-op-001"/>
+                        <outlet property="titleLabel" destination="DTL-tl-001" id="DTL-ot-001"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DTL-fr-001" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="123"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
